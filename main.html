@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf App | Dicoding</title>
+    <link rel="stylesheet" href="book.css" />
+  </head>
+  <body>
+    <main class="utama">
+      <header class="header">
+        <h1 class="title-header">Bookshelf App</h1>
+      </header>
+
+      <div class="main">
+        <div class="container">
+          <form class="form tambah-buku" action="#" id="form">
+            <div class="form-group">
+              <label for="judul">Judul Buku</label>
+              <input type="text" id="judul" name="judul" required autofocus />
+            </div>
+
+            <article>
+              <div class="form-group">
+                <label for="penulis">Penulis Buku</label>
+                <input type="text" id="penulis" name="penulis" required />
+              </div>
+              <div class="form-group">
+                <label for="tahun">Tahun Buku</label>
+                <input type="text" id="tahun" maxlength="4" name="tahun" min="1900" max="2025" required />
+              </div>
+            </article>
+            <button type="submit" class="btn-submit">Simpan</button>
+          </form>
+        </div>
+        <div class="container-filter">
+          <input type="search" id="searchInput" placeholder="Cari judul buku..." />
+        </div>
+        <!-- <div class="container-info">
+          <div><img class="icon" src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="tombol1" /><span class="info-ket"> = Tombol Selesai</span></div>
+          <div><img class="icon" src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png" alt="tombol2" /><span class="info-ket"> = Tombol Edit</span></div>
+          <div><img class="icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828665.png" alt="tombol3" /><span class="info-ket"> = Tombol Undo</span></div>
+          <div><img class="icon" src="https://cdn-icons-png.flaticon.com/512/484/484611.png" alt="tombol4" /><span class="info-ket"> = Tombol Hapus</span></div>
+        </div> -->
+      </div>
+
+      <div class="body">
+        <div class="container-rak">
+          <h2 class="title-header">Buku belum dibaca</h2>
+          <div class="list-item" id="yet-read"></div>
+        </div>
+
+        <div class="container-rak">
+          <h2 class="title-header">Buku sudah dibaca</h2>
+          <div class="list-item" id="end-read"></div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div data-bookid="123123123" data-testid="bookItem">
+          <h4 class="title-header">Copyright &copy; 2025 from <strong>Aqr</strong> with Love</h4>
+        </div>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+      const tahunInput = document.getElementById("tahun");
+
+      tahunInput.addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "");
+        if (this.value.length > 4) {
+          this.value = this.value.slice(0, 4);
+        }
+      });
+    </script>
+  </body>
+</html>
